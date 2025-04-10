@@ -1,24 +1,33 @@
 {
-  // Name this configuration
-  "name": "Codespace for Skills!",
-  // Use the base codespace image
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:latest",
+    // Name this configuration
+    "name": "Codespace for Skills!",
+    // Use the base codespace image
+    "image": "mcr.microsoft.com/vscode/devcontainers/universal:latest",
 
-  "remoteUser": "codespace",
-  "overrideCommand": false ,
-  // Add the IDs of extensions you want installed when the container is created.
-  "customizations": {
-      "vscode": {
-          "extensions": [
-              "GitHub.copilot"
-          ]
-      },
-      "codespaces": {
-          "openFiles": [
-              "codespace.md"
-          ]
-      }
-  }
-   ,
- "postCreateCommand": "echo '# Writing code upon codespace creation!'  >> codespace.md"
+    "remoteUser": "codespace",
+    "overrideCommand": false,
+    // Add the IDs of extensions you want installed when the container is created.
+    "customizations": {
+            "vscode": {
+                    "extensions": [
+                            "GitHub.copilot"
+                    ]
+            },
+            "codespaces": {
+                    "openFiles": [
+                            "codespace.md"
+                    ]
+            }
+    },
+    // Use the following to install additional packages.
+
+    "postCreateCommand": "echo '# Writing code upon codespace creation!'  >> codespace.md",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "dockerSocketBindMount": true
+        }
+    },
 }
